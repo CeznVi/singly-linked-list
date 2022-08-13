@@ -11,14 +11,15 @@ class List
 	Data<T>* first = nullptr;
 	Data<T>* last = nullptr;
 	size_t   size = 0;
-
 	Data<T>* find(size_t ind);
 
 public:
 	List() {	}
 	List(initializer_list<T> list);
 	~List();
+	//Конструктор копіювання
 	List(const List& l);
+	//оператор присвоєння
 	List<T>& operator=(const List<T>& l);
 
 	void push_back(const T& value);
@@ -41,6 +42,7 @@ public:
 	void print(char t = ' ') const;
 	void print_reverse(char t = ' ') const;
 
+	//todo
 	List<T> operator+(const List<T>& l);
 	List<T> operator*(const List<T>& l);
 	void operator+=(const List<T>& l);
@@ -52,7 +54,6 @@ public:
 	void sort(bool(*method)(T, T) = asc);
 	void reverse();
 
-	//https://en.cppreference.com/w/cpp/container/list/splice
 	void splice(const List<T>& other, size_t pos, size_t count);
 };
 
@@ -77,6 +78,15 @@ Data<T>* List<T>::find(size_t ind)
 		}
 	}
 	return pos;
+}
+
+template<class T>
+List<T>::List(initializer_list<T> list)
+{
+	for (T l : list)
+	{
+		push_back(l);
+	}
 }
 
 template<class T>
@@ -232,6 +242,18 @@ T& List<T>::operator[](size_t ind)
 }
 
 template<class T>
+size_t List<T>::length() const
+{
+	return size;
+}
+
+template<class T>
+bool List<T>::isEmpty() const
+{
+	return size == 0;
+}
+
+template<class T>
 void List<T>::clear()
 {
 	Data<T>* temp = first;
@@ -253,6 +275,18 @@ void List<T>::print(char t) const
 	{
 		cout << temp->value << t;
 		temp = temp->next;
+	}
+	cout << endl;
+}
+
+template<class T>
+void List<T>::print_reverse(char t) const
+{
+	Data<T>* temp = last;
+	while (temp)
+	{
+		cout << temp->value << t;
+		temp = temp->prev;
 	}
 	cout << endl;
 }
