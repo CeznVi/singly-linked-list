@@ -1,25 +1,22 @@
 ﻿#include<iostream>
 #include<Windows.h>
-
-#include"List.h"
+#include"ForwardList.h"
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
-	List<int> l{ 1,2,3,4,5,6,7 };
-	//l.push_back(10);
-	//l.push_back(20);
-	//l.push_back(30);
-	//l.push_front(40);
-	//l.push_front(50);
-	//l.push_front(60);
+	ForwardList<int> l{ 1,2,3,4,5,6,7 };
+	l.push_back(80);
+	l.push_back(90);
+	l.push_back(100);
+	l.push_front(10);
+	l.push_front(11);
+	l.push_front(12);
 	l.print();
 	l.insert(99, 2);
 	l.print();
-	//l.sort(desc);
-	//l.print();
 	l.pop_back();
 	l.pop_front();
 	l.print();
@@ -31,7 +28,14 @@ int main()
 	std::cout << "Друк списку у зворотньому порядку: \n";
 	l.print_reverse();
 	std::cout << "Розмір списку: " << l.length() << '\n';
-
+	std::cout << "Список до сортування: \n";
+	l.print();
+	l.sort(desc);
+	std::cout << "Список після сортування від більшого до меньшого значення: \n";
+	l.print();
+	l.sort(asc);
+	std::cout << "Список після сортування від більшого до меньшого значення: \n";
+	l.print();
 
 	return 0;
 }
