@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<Windows.h>
 
 #include"List.h"
@@ -26,11 +26,11 @@ int main()
 	l.remove(2);
 	l.print();
 	l[2] = 88;
-	std::cout << "Äðóê ñïèñêó: \n";
+	std::cout << "Ð”Ñ€ÑƒÐº ÑÐ¿Ð¸ÑÐºÑƒ: \n";
 	l.print();
-	std::cout << "Äðóê ñïèñêó ó çâîðîòíüîìó ïîðÿäêó: \n";
+	std::cout << "Ð”Ñ€ÑƒÐº ÑÐ¿Ð¸ÑÐºÑƒ Ñƒ Ð·Ð²Ð¾Ñ€Ð¾Ñ‚Ð½ÑŒÐ¾Ð¼Ñƒ Ð¿Ð¾Ñ€ÑÐ´ÐºÑƒ: \n";
 	l.print_reverse();
-	std::cout << "Ðîçì³ð ñïèñêó: " << l.length() << '\n';
+	std::cout << "Ð Ð¾Ð·Ð¼Ñ–Ñ€ ÑÐ¿Ð¸ÑÐºÑƒ: " << l.length() << '\n';
 
 
 	return 0;

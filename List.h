@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include"Data.h"
 #include<initializer_list>
@@ -17,9 +17,9 @@ public:
 	List() {	}
 	List(initializer_list<T> list);
 	~List();
-	//Конструктор копіювання
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
 	List(const List& l);
-	//оператор присвоєння
+	//РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІРѕС”РЅРЅСЏ
 	List<T>& operator=(const List<T>& l);
 
 	void push_back(const T& value);
