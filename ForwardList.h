@@ -38,8 +38,11 @@ public:
 	void print(char t = ' ') const;
 	void print_reverse(char t = ' ') const;
 
+	void clone(const ForwardList<T> l);
+
 	ForwardList<T> operator+(const ForwardList<T>& l);
 	ForwardList<T> operator*(const ForwardList<T>& l);
+
 	void operator+=(const ForwardList<T>& l);
 	void operator*=(const ForwardList<T>& l);
 
@@ -72,7 +75,7 @@ ForwardList<T>::~ForwardList()
 template<class T>
 ForwardList<T>::ForwardList(const ForwardList& l)
 {
-	std::cout << "\n\n Конструктор копіювання \n\n";
+
 	Data<T>* temp = l.first;
 	while (temp)
 	{
@@ -98,7 +101,6 @@ ForwardList<T>& ForwardList<T>::operator=(const ForwardList<T>& l)
 
 	return *this;
 }
-
 
 template<class T>
 void ForwardList<T>::push_back(const T& value)
@@ -307,6 +309,42 @@ void ForwardList<T>::print_reverse(char t) const
 		temp = temp->prev;
 	}
 	cout << endl;
+}
+
+template<class T>
+void ForwardList<T>::clone(const ForwardList<T> l)
+{
+	*this = l;
+}
+
+template<class T>
+ForwardList<T> ForwardList<T>::operator+(const ForwardList<T>& l)
+{
+	Data<T>* temp = l.first;
+	while (temp)
+	{
+		this->push_back(temp->value);
+		temp = temp->next;
+	}
+
+	return *this;
+}
+
+template<class T>
+ForwardList<T> ForwardList<T>::operator*(const ForwardList<T>& l)
+{
+
+
+
+
+
+	return ForwardList<T>();
+}
+
+template<class T>
+void ForwardList<T>::operator+=(const ForwardList<T>& l)
+{
+	*this = *this + l;
 }
 
 template<class T>

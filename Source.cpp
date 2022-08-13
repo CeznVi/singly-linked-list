@@ -37,6 +37,14 @@ int main()
 	l.reverse();
 	std::cout << "Список після сортування від більшого до меньшого значення: \n";
 	l.print();
+	std::cout << "Клонування списку: \n";
+	ForwardList<int> l2;
+	l2.clone(l);
+	l2.print();
+	std::cout << "Оператор +  //(l + l2) \n";
+	l += l2;
+	l.print();
+
 
 
 	return 0;
