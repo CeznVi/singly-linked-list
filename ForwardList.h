@@ -7,7 +7,6 @@
 template<class T>
 class ForwardList
 {
-
 	Data<T>* first = nullptr;
 	Data<T>* last = nullptr;
 	size_t   size = 0;
@@ -38,7 +37,6 @@ public:
 	void clear();
 	void print(char t = ' ') const;
 	void print_reverse(char t = ' ') const;
-
 
 	ForwardList<T> operator+(const ForwardList<T>& l);
 	ForwardList<T> operator*(const ForwardList<T>& l);
@@ -74,14 +72,31 @@ ForwardList<T>::~ForwardList()
 template<class T>
 ForwardList<T>::ForwardList(const ForwardList& l)
 {
-	//TODO
+	std::cout << "\n\n Конструктор копіювання \n\n";
+	Data<T>* temp = l.first;
+	while (temp)
+	{
+		this->push_back(temp->value);
+		temp = temp->next;
+	}
 }
 
 template<class T>
 ForwardList<T>& ForwardList<T>::operator=(const ForwardList<T>& l)
 {
-	//TODO
-	return;
+	if (this == &l)
+		return *this;
+
+	this->clear();
+
+	Data<T>* temp = l.first;
+	while (temp)
+	{
+		this->push_back(temp->value);
+		temp = temp->next;
+	}
+
+	return *this;
 }
 
 
@@ -304,6 +319,23 @@ void ForwardList<T>::sort(bool(*method)(T, T))
 			T& val1 = this->operator[](j);
 			T& val2 = this->operator[](j + 1);
 			if (method(val1, val2))
+			{
+				swap(val1, val2);
+			}
+		}
+	}
+}
+
+template<class T>
+void ForwardList<T>::reverse()
+{
+	for (size_t i = 0; i < size - 1; i++)
+	{
+		for (size_t j = 0; j < size - 1 - i; j++)
+		{
+			T& val1 = this->operator[](j);
+			T& val2 = this->operator[](j + 1);
+			if (val1 < val2)
 			{
 				swap(val1, val2);
 			}

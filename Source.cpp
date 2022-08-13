@@ -8,6 +8,7 @@ int main()
 	SetConsoleOutputCP(1251);
 	
 	ForwardList<int> l{ 1,2,3,4,5,6,7 };
+
 	l.push_back(80);
 	l.push_back(90);
 	l.push_back(100);
@@ -30,12 +31,13 @@ int main()
 	std::cout << "Розмір списку: " << l.length() << '\n';
 	std::cout << "Список до сортування: \n";
 	l.print();
-	l.sort(desc);
-	std::cout << "Список після сортування від більшого до меньшого значення: \n";
-	l.print();
 	l.sort(asc);
+	std::cout << "Список після сортування від меньшого до більшого значення: \n";
+	l.print();
+	l.reverse();
 	std::cout << "Список після сортування від більшого до меньшого значення: \n";
 	l.print();
+
 
 	return 0;
 }
